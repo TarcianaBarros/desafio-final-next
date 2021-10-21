@@ -16,6 +16,12 @@ public class GrettingController {
     public Gretting gretting(@RequestParam(value = "name", defaultValue = "World") String name) {
         return new Gretting(counter.incrementAndGet(), String.format(template, name));
     }
+    
+    @GetMapping("/users")
+    public Gretting users(@RequestParam(value = "name", defaultValue = "Cesar") String name) {
+       return new Gretting(counter.incrementAndGet(), String.format(template, name));
+    }
+    
 
 
 }
