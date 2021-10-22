@@ -1,8 +1,6 @@
 package cesar.next.desafio.desafionextcesar;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -15,6 +13,12 @@ public class GrettingController {
    @GetMapping("/greeting")
     public Gretting gretting(@RequestParam(value = "name", defaultValue = "World") String name) {
        return new Gretting(counter.incrementAndGet(), String.format(template, name));
+    }
+
+    @GetMapping("project/{id}")
+    @ResponseBody
+    public String getProjectById(@PathVariable Integer id){
+       return "ID" + id;
     }
 
 
