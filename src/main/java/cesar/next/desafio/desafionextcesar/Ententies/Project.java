@@ -44,6 +44,10 @@ public class Project implements Serializable {
     @Enumerated(EnumType.STRING)
     private FlagProject flag;
 
+    @OneToMany
+    @JoinColumn(name = "COST_CENTER_ID")
+    private Set<CostCenter> costCenter;
+
 
 }
 
