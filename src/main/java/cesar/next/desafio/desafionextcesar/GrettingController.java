@@ -15,15 +15,15 @@ public class GrettingController {
        return new Gretting(counter.incrementAndGet(), String.format(template, name));
     }
 
-    @GetMapping("/projects")
-    public Gretting getProjects(@RequestParam(value = "name", defaultValue = "aqui retornara os projetos") String name) {
-        return new Gretting(counter.incrementAndGet(), String.format(template, name));
-    }
+//    @GetMapping("/projects")
+//    public Gretting getProjects(@RequestParam(value = "name", defaultValue = "aqui retornara os projetos") String name) {
+//        return new Gretting(counter.incrementAndGet(), String.format(template, name));
+//    }
 
-    @GetMapping("/users")
-    public Gretting users(@RequestParam(value = "name", defaultValue = "Cesar") String name) {
-       return new Gretting(counter.incrementAndGet(), String.format(template, name));
-    }
+//    @GetMapping("/users")
+//    public Gretting users(@RequestParam(value = "name", defaultValue = "Cesar") String name) {
+//       return new Gretting(counter.incrementAndGet(), String.format(template, name));
+//    }
     
     @GetMapping("project/{id}")
     @ResponseBody

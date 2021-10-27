@@ -1,8 +1,14 @@
 package cesar.next.desafio.desafionextcesar.Ententies;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 @Entity
 @Table(name = "USER")
 public class User {
@@ -16,7 +22,7 @@ public class User {
     private String firstName;
 
     @Column(name = "LASTNAME", nullable = false, unique = false)
-    private String lastname;
+    private String lastName;
 
     @Column(name = "REGISTRATION", nullable = false, unique = false)
     private String registration;
@@ -28,7 +34,7 @@ public class User {
     private String birthDate;
 
     @ManyToOne
-    @JoinColumn(name = "PROJECT_ID", referencedColumnName = "ID")
+    @JoinColumn(name = "PROJECT_ID")
     private Project project;
 
 

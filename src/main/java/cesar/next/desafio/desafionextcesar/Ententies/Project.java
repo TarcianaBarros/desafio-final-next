@@ -1,10 +1,19 @@
 package cesar.next.desafio.desafionextcesar.Ententies;
 
 import cesar.next.desafio.desafionextcesar.Enum.FlagProject;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "PROJECT")
 public class Project implements Serializable {
@@ -25,15 +34,15 @@ public class Project implements Serializable {
     @Column(name = "STATUS", nullable = false, unique = false)
     private String status;
 
+    //@JsonBackReference
     @OneToMany
-    @JoinColumn(name = "USER_ID", referencedColumnName = "ID")
-    private User users;
+    @JoinColumn(name = "USER_ID")
+    private Set<User> users;
 
 
     @Column(name = "FLAG", nullable = false, unique = false)
     @Enumerated(EnumType.STRING)
-    private FlagProject colors;
-
+    private FlagProject flag;
 
 
 }
